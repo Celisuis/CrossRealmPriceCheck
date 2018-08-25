@@ -37,9 +37,9 @@
             this.ItemID_Textbox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.Check_Realms_Button = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.Region_Textbox = new System.Windows.Forms.TextBox();
             this.Item_Report_Label = new System.Windows.Forms.LinkLabel();
+            this.EU_Checkbox = new System.Windows.Forms.CheckBox();
+            this.US_Checkbox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.Report_DataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -130,23 +130,6 @@
             this.Check_Realms_Button.UseVisualStyleBackColor = true;
             this.Check_Realms_Button.Click += new System.EventHandler(this.Check_Realms_Button_Click);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(314, 50);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 13);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Region";
-            // 
-            // Region_Textbox
-            // 
-            this.Region_Textbox.Location = new System.Drawing.Point(381, 47);
-            this.Region_Textbox.Name = "Region_Textbox";
-            this.Region_Textbox.Size = new System.Drawing.Size(59, 20);
-            this.Region_Textbox.TabIndex = 11;
-            this.Region_Textbox.TextChanged += new System.EventHandler(this.Region_Textbox_TextChanged);
-            // 
             // Item_Report_Label
             // 
             this.Item_Report_Label.AutoSize = true;
@@ -159,14 +142,36 @@
             this.Item_Report_Label.Visible = false;
             this.Item_Report_Label.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Item_Report_Label_LinkClicked);
             // 
+            // EU_Checkbox
+            // 
+            this.EU_Checkbox.AutoSize = true;
+            this.EU_Checkbox.Location = new System.Drawing.Point(312, 47);
+            this.EU_Checkbox.Name = "EU_Checkbox";
+            this.EU_Checkbox.Size = new System.Drawing.Size(41, 17);
+            this.EU_Checkbox.TabIndex = 13;
+            this.EU_Checkbox.Text = "EU";
+            this.EU_Checkbox.UseVisualStyleBackColor = true;
+            this.EU_Checkbox.CheckedChanged += new System.EventHandler(this.EU_Checkbox_CheckedChanged);
+            // 
+            // US_Checkbox
+            // 
+            this.US_Checkbox.AutoSize = true;
+            this.US_Checkbox.Location = new System.Drawing.Point(368, 47);
+            this.US_Checkbox.Name = "US_Checkbox";
+            this.US_Checkbox.Size = new System.Drawing.Size(41, 17);
+            this.US_Checkbox.TabIndex = 14;
+            this.US_Checkbox.Text = "US";
+            this.US_Checkbox.UseVisualStyleBackColor = true;
+            this.US_Checkbox.CheckedChanged += new System.EventHandler(this.US_Checkbox_CheckedChanged);
+            // 
             // CrossRealmCheck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(630, 434);
+            this.Controls.Add(this.US_Checkbox);
+            this.Controls.Add(this.EU_Checkbox);
             this.Controls.Add(this.Item_Report_Label);
-            this.Controls.Add(this.Region_Textbox);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.Check_Realms_Button);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.ItemID_Textbox);
@@ -195,8 +200,8 @@
         private System.Windows.Forms.TextBox ItemID_Textbox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button Check_Realms_Button;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox Region_Textbox;
         private System.Windows.Forms.LinkLabel Item_Report_Label;
+        private System.Windows.Forms.CheckBox EU_Checkbox;
+        private System.Windows.Forms.CheckBox US_Checkbox;
     }
 }

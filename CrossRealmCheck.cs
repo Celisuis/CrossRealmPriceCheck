@@ -150,17 +150,6 @@ namespace CrossRealmPriceCheck
 
         }
 
-        private void Region_Textbox_TextChanged(object sender, EventArgs e)
-        {
-            if (Region_Textbox.Text.ToUpper() == "EU")
-            {
-                InformationManager.Instance.Region = "EU";
-            }
-            if (Region_Textbox.Text.ToUpper() == "US")
-            {
-                InformationManager.Instance.Region = "US";
-            }
-        }
         
         private void Item_Report_Label_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -178,6 +167,24 @@ namespace CrossRealmPriceCheck
         {
             System.Diagnostics.Process.Start($"https://www.wowhead.com/item={itemID}");
             Item_Report_Label.LinkVisited = true;
+        }
+
+        private void EU_Checkbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if(EU_Checkbox.Checked)
+            {
+                InformationManager.Instance.Region = "EU";
+                US_Checkbox.Checked = false;
+            }
+        }
+
+        private void US_Checkbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (US_Checkbox.Checked)
+            {
+                InformationManager.Instance.Region = "US";
+                EU_Checkbox.Checked = false;
+            }
         }
     }
 }
