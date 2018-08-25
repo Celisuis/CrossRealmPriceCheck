@@ -17,11 +17,18 @@ namespace CrossRealmPriceCheck
         public Connect()
         {
             InitializeComponent();
+
+            if(!String.IsNullOrWhiteSpace(Settings.Default.API_KEY))
+            {
+                API_KEY_Textbox.Text = Settings.Default.API_KEY;
+                InformationManager.Instance.API_KEY = Settings.Default.API_KEY;
+            }
         }
 
         private void API_KEY_Textbox_TextChanged(object sender, EventArgs e)
         {
             InformationManager.Instance.API_KEY = API_KEY_Textbox.Text;
+            
         }
 
         private void TSM_Account_Page_Link_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -38,6 +45,9 @@ namespace CrossRealmPriceCheck
 
         private void Connect_Button_Click(object sender, EventArgs e)
         {
+            Settings.Default.API_KEY = InformationManager.Instance.API_KEY;
+            Settings.Default.Save();
+
             if(String.IsNullOrWhiteSpace(API_KEY_Textbox.Text))
             {
                 MessageBox.Show("Please enter your TSM API Key");

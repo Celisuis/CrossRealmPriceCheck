@@ -41,6 +41,7 @@
             this.API_KEY_Textbox.Size = new System.Drawing.Size(260, 20);
             this.API_KEY_Textbox.TabIndex = 0;
             this.API_KEY_Textbox.TextChanged += new System.EventHandler(this.API_KEY_Textbox_TextChanged);
+            
             // 
             // Connect_Button
             // 

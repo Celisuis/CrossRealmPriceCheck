@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CrossRealmPriceCheck.Properties;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,7 +24,8 @@ namespace CrossRealmPriceCheck.Managers
 
             Instance = new InformationManager
             {
-                RealmsToCompare = new List<string>()
+                RealmsToCompare = new List<string>(),
+                API_KEY = Settings.Default.API_KEY,
             };
         }
     }
