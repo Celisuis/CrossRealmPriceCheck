@@ -43,6 +43,8 @@ namespace CrossRealmPriceCheck
             {
                 InformationManager.Instance.RealmsToCompare.Add(realmToAdd);
 
+                Logger.AddRealm(realmToAdd);
+
                 if (Display_Message_Checkbox.Checked)
                 {
                     MessageBox.Show($"{realmToAdd} has been added to Compare List.");
@@ -69,6 +71,9 @@ namespace CrossRealmPriceCheck
             if (InformationManager.Instance.RealmsToCompare.Contains(realmToAdd))
             {
                 InformationManager.Instance.RealmsToCompare.Remove(realmToAdd);
+
+                Logger.RemoveRealm(realmToAdd);
+
                 if (Display_Message_Checkbox.Checked)
                 {
                     MessageBox.Show($"{realmToAdd} has been removed to Compare List.");
@@ -185,6 +190,25 @@ namespace CrossRealmPriceCheck
                 InformationManager.Instance.Region = "US";
                 EU_Checkbox.Checked = false;
             }
+        }
+
+        private void showRealmListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if (InformationManager.Instance.RealmListEnabled)
+            {
+                Logger.HideWindow();
+
+                InformationManager.Instance.RealmListEnabled = false;
+            }
+
+            if (!InformationManager.Instance.RealmListEnabled)
+            {
+                Logger.ShowWindow();
+
+                InformationManager.Instance.RealmListEnabled = true;
+            }
+
         }
     }
 }

@@ -40,12 +40,15 @@
             this.Item_Report_Label = new System.Windows.Forms.LinkLabel();
             this.EU_Checkbox = new System.Windows.Forms.CheckBox();
             this.US_Checkbox = new System.Windows.Forms.CheckBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.showRealmListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.Report_DataGrid)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Realm_Name_Textbox
             // 
-            this.Realm_Name_Textbox.Location = new System.Drawing.Point(98, 42);
+            this.Realm_Name_Textbox.Location = new System.Drawing.Point(116, 64);
             this.Realm_Name_Textbox.Name = "Realm_Name_Textbox";
             this.Realm_Name_Textbox.Size = new System.Drawing.Size(100, 20);
             this.Realm_Name_Textbox.TabIndex = 0;
@@ -53,7 +56,7 @@
             // 
             // Add_Realm_Button
             // 
-            this.Add_Realm_Button.Location = new System.Drawing.Point(218, 40);
+            this.Add_Realm_Button.Location = new System.Drawing.Point(236, 62);
             this.Add_Realm_Button.Name = "Add_Realm_Button";
             this.Add_Realm_Button.Size = new System.Drawing.Size(75, 23);
             this.Add_Realm_Button.TabIndex = 1;
@@ -63,7 +66,7 @@
             // 
             // Remove_Realm_Button
             // 
-            this.Remove_Realm_Button.Location = new System.Drawing.Point(316, 40);
+            this.Remove_Realm_Button.Location = new System.Drawing.Point(334, 62);
             this.Remove_Realm_Button.Name = "Remove_Realm_Button";
             this.Remove_Realm_Button.Size = new System.Drawing.Size(75, 23);
             this.Remove_Realm_Button.TabIndex = 2;
@@ -74,7 +77,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 47);
+            this.label1.Location = new System.Drawing.Point(35, 69);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 13);
             this.label1.TabIndex = 3;
@@ -85,7 +88,7 @@
             this.Display_Message_Checkbox.AutoSize = true;
             this.Display_Message_Checkbox.Checked = true;
             this.Display_Message_Checkbox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.Display_Message_Checkbox.Location = new System.Drawing.Point(415, 46);
+            this.Display_Message_Checkbox.Location = new System.Drawing.Point(433, 68);
             this.Display_Message_Checkbox.Name = "Display_Message_Checkbox";
             this.Display_Message_Checkbox.Size = new System.Drawing.Size(100, 17);
             this.Display_Message_Checkbox.TabIndex = 4;
@@ -106,7 +109,7 @@
             // 
             // ItemID_Textbox
             // 
-            this.ItemID_Textbox.Location = new System.Drawing.Point(151, 73);
+            this.ItemID_Textbox.Location = new System.Drawing.Point(169, 95);
             this.ItemID_Textbox.Name = "ItemID_Textbox";
             this.ItemID_Textbox.Size = new System.Drawing.Size(89, 20);
             this.ItemID_Textbox.TabIndex = 6;
@@ -114,7 +117,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(101, 76);
+            this.label2.Location = new System.Drawing.Point(119, 98);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 13);
             this.label2.TabIndex = 7;
@@ -145,7 +148,7 @@
             // EU_Checkbox
             // 
             this.EU_Checkbox.AutoSize = true;
-            this.EU_Checkbox.Location = new System.Drawing.Point(316, 76);
+            this.EU_Checkbox.Location = new System.Drawing.Point(334, 98);
             this.EU_Checkbox.Name = "EU_Checkbox";
             this.EU_Checkbox.Size = new System.Drawing.Size(41, 17);
             this.EU_Checkbox.TabIndex = 13;
@@ -156,13 +159,30 @@
             // US_Checkbox
             // 
             this.US_Checkbox.AutoSize = true;
-            this.US_Checkbox.Location = new System.Drawing.Point(372, 76);
+            this.US_Checkbox.Location = new System.Drawing.Point(390, 98);
             this.US_Checkbox.Name = "US_Checkbox";
             this.US_Checkbox.Size = new System.Drawing.Size(41, 17);
             this.US_Checkbox.TabIndex = 14;
             this.US_Checkbox.Text = "US";
             this.US_Checkbox.UseVisualStyleBackColor = true;
             this.US_Checkbox.CheckedChanged += new System.EventHandler(this.US_Checkbox_CheckedChanged);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showRealmListToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(630, 24);
+            this.menuStrip1.TabIndex = 15;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // showRealmListToolStripMenuItem
+            // 
+            this.showRealmListToolStripMenuItem.Name = "showRealmListToolStripMenuItem";
+            this.showRealmListToolStripMenuItem.Size = new System.Drawing.Size(105, 20);
+            this.showRealmListToolStripMenuItem.Text = "Show Realm List";
+            this.showRealmListToolStripMenuItem.Click += new System.EventHandler(this.showRealmListToolStripMenuItem_Click);
             // 
             // CrossRealmCheck
             // 
@@ -181,9 +201,13 @@
             this.Controls.Add(this.Remove_Realm_Button);
             this.Controls.Add(this.Add_Realm_Button);
             this.Controls.Add(this.Realm_Name_Textbox);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "CrossRealmCheck";
             this.Text = "Cross Realm Check";
             ((System.ComponentModel.ISupportInitialize)(this.Report_DataGrid)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -203,5 +227,7 @@
         private System.Windows.Forms.LinkLabel Item_Report_Label;
         private System.Windows.Forms.CheckBox EU_Checkbox;
         private System.Windows.Forms.CheckBox US_Checkbox;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem showRealmListToolStripMenuItem;
     }
 }

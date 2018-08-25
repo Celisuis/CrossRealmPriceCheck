@@ -56,7 +56,7 @@ namespace CrossRealmPriceCheck
 
             AuctionManager.Instance.ConnectClient();
             CrossRealmCheck crc = new CrossRealmCheck();
-
+            Logger.InitializeWindow();
             crc.Show();
 
             Hide();

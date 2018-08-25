@@ -16,7 +16,8 @@ namespace CrossRealmPriceCheck.Managers
         public string Region;
 
         public List<string> RealmsToCompare;
-        
+
+        public bool RealmListEnabled;
         public static void StartInstance()
         {
             if (Instance != null)
