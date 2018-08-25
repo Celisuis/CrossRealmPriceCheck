@@ -45,7 +45,7 @@
             // 
             // Realm_Name_Textbox
             // 
-            this.Realm_Name_Textbox.Location = new System.Drawing.Point(94, 13);
+            this.Realm_Name_Textbox.Location = new System.Drawing.Point(98, 42);
             this.Realm_Name_Textbox.Name = "Realm_Name_Textbox";
             this.Realm_Name_Textbox.Size = new System.Drawing.Size(100, 20);
             this.Realm_Name_Textbox.TabIndex = 0;
@@ -53,7 +53,7 @@
             // 
             // Add_Realm_Button
             // 
-            this.Add_Realm_Button.Location = new System.Drawing.Point(214, 11);
+            this.Add_Realm_Button.Location = new System.Drawing.Point(218, 40);
             this.Add_Realm_Button.Name = "Add_Realm_Button";
             this.Add_Realm_Button.Size = new System.Drawing.Size(75, 23);
             this.Add_Realm_Button.TabIndex = 1;
@@ -63,7 +63,7 @@
             // 
             // Remove_Realm_Button
             // 
-            this.Remove_Realm_Button.Location = new System.Drawing.Point(312, 11);
+            this.Remove_Realm_Button.Location = new System.Drawing.Point(316, 40);
             this.Remove_Realm_Button.Name = "Remove_Realm_Button";
             this.Remove_Realm_Button.Size = new System.Drawing.Size(75, 23);
             this.Remove_Realm_Button.TabIndex = 2;
@@ -74,7 +74,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 18);
+            this.label1.Location = new System.Drawing.Point(17, 47);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 13);
             this.label1.TabIndex = 3;
@@ -85,7 +85,7 @@
             this.Display_Message_Checkbox.AutoSize = true;
             this.Display_Message_Checkbox.Checked = true;
             this.Display_Message_Checkbox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.Display_Message_Checkbox.Location = new System.Drawing.Point(411, 17);
+            this.Display_Message_Checkbox.Location = new System.Drawing.Point(415, 46);
             this.Display_Message_Checkbox.Name = "Display_Message_Checkbox";
             this.Display_Message_Checkbox.Size = new System.Drawing.Size(100, 17);
             this.Display_Message_Checkbox.TabIndex = 4;
@@ -106,7 +106,7 @@
             // 
             // ItemID_Textbox
             // 
-            this.ItemID_Textbox.Location = new System.Drawing.Point(147, 44);
+            this.ItemID_Textbox.Location = new System.Drawing.Point(151, 73);
             this.ItemID_Textbox.Name = "ItemID_Textbox";
             this.ItemID_Textbox.Size = new System.Drawing.Size(89, 20);
             this.ItemID_Textbox.TabIndex = 6;
@@ -114,7 +114,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(97, 47);
+            this.label2.Location = new System.Drawing.Point(101, 76);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 13);
             this.label2.TabIndex = 7;
@@ -145,7 +145,7 @@
             // EU_Checkbox
             // 
             this.EU_Checkbox.AutoSize = true;
-            this.EU_Checkbox.Location = new System.Drawing.Point(312, 47);
+            this.EU_Checkbox.Location = new System.Drawing.Point(316, 76);
             this.EU_Checkbox.Name = "EU_Checkbox";
             this.EU_Checkbox.Size = new System.Drawing.Size(41, 17);
             this.EU_Checkbox.TabIndex = 13;
@@ -156,7 +156,7 @@
             // US_Checkbox
             // 
             this.US_Checkbox.AutoSize = true;
-            this.US_Checkbox.Location = new System.Drawing.Point(368, 47);
+            this.US_Checkbox.Location = new System.Drawing.Point(372, 76);
             this.US_Checkbox.Name = "US_Checkbox";
             this.US_Checkbox.Size = new System.Drawing.Size(41, 17);
             this.US_Checkbox.TabIndex = 14;

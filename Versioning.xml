@@ -1,5 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Versioning>
-  <Version>0.2</Version>
-  <DownloadLink></DownloadLink>
-</Versioning>
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<item>
+  <version>0.2.0.0</version>
+  <url>https://github.com/Celisuis/CrossRealmPriceCheck/releases</url>
+  <changelog>https://github.com/Celisuis/CrossRealmPriceCheck</changelog>
+  <mandatory>false</mandatory>
+</item>
