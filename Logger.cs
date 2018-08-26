@@ -9,10 +9,15 @@ namespace CrossRealmPriceCheck
     public class Logger
     {
         public static RealmList RealmList;
-
+        public static ItemList ItemList;
         public static void AddRealm(string realm)
         {
             RealmList.Realm_List.AppendText($"{realm}" + Environment.NewLine);
+        }
+
+        public static void AddItem(string itemID)
+        {
+            ItemList.ItemID_RichBox.AppendText($"{itemID}" + Environment.NewLine);
         }
 
         public static void RemoveRealm(string realm)
@@ -29,20 +34,47 @@ namespace CrossRealmPriceCheck
             }
         }
 
-        public static void InitializeWindow()
+        public static void RemoveItem(string itemID)
+        {
+            List<string> items = ItemList.ItemID_RichBox.Lines.ToList();
+
+            items.Remove(itemID);
+
+            RealmList.Realm_List.Text = String.Empty;
+
+            foreach (string srealm in items)
+            {
+                RealmList.Realm_List.AppendText($"{srealm}" + Environment.NewLine);
+            }
+        }
+        public static void InitializeRealmWindow()
         {
             RealmList = new RealmList();
             
         }
 
-        public static void ShowWindow()
+        public static void InitializeItemWindow()
+        {
+            ItemList = new ItemList();
+        }
+
+        public static void ShowRealmWindow()
         {
             RealmList.Show();
         }
 
-        public static void HideWindow()
+        public static void ShowItemWindow()
         {
-            RealmList.Visible = false;
+            ItemList.Show();
+        }
+        public static void HideRealmWindow()
+        {
+            RealmList.Hide();
+        }
+
+        public static void HideItemWindow()
+        {
+            ItemList.Hide();
         }
     }
 }

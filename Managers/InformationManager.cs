@@ -17,7 +17,12 @@ namespace CrossRealmPriceCheck.Managers
 
         public List<string> RealmsToCompare;
 
+        public List<string> ItemIDsToCompare;
+
+        public List<string> TabsGenerated;
         public bool RealmListEnabled;
+
+        public bool ItemListEnabled;
         public static void StartInstance()
         {
             if (Instance != null)
@@ -26,6 +31,8 @@ namespace CrossRealmPriceCheck.Managers
             Instance = new InformationManager
             {
                 RealmsToCompare = new List<string>(),
+                ItemIDsToCompare = new List<string>(),
+                TabsGenerated = new List<string>(),
                 API_KEY = Settings.Default.API_KEY,
             };
         }

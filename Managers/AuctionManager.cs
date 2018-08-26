@@ -17,7 +17,11 @@ namespace CrossRealmPriceCheck.Managers
 
         public TSMClient Client;
 
-        public Dictionary<string, TSMItem> ItemList;
+        public Dictionary<TSMItem, string> ItemDictionary;
+
+        public List<TSMItem> ItemList;
+
+        public List<Dictionary<TSMItem, string>> DictionaryList;
 
         public static void StartInstance()
         {
@@ -30,17 +34,38 @@ namespace CrossRealmPriceCheck.Managers
         public void ConnectClient()
         {
             Client = new TSMClient(InformationManager.Instance.API_KEY);
+            ItemList = new List<TSMItem>();
+            DictionaryList = new List<Dictionary<TSMItem, string>>();
+
         }
 
         public void FetchAuctions(int itemID, List<string> realms)
         {
-            ItemList = new Dictionary<string, TSMItem>();
+            ItemDictionary = new Dictionary<TSMItem, string>();
 
-            foreach(string realm in realms)
+            foreach (string realm in realms)
             {
                 TSMItem newItem = Client.TSM.RetrieveRealmItem(itemID, realm, InformationManager.Instance.Region);
-                ItemList.Add(realm, newItem);
+                ItemDictionary.Add(newItem, realm);
+
+                DictionaryList.Add(ItemDictionary);
             }
         }
+
+        public void FetchSingleAuction(int itemID, string realm)
+        {
+            ItemDictionary = new Dictionary<TSMItem, string>();
+
+            TSMItem item = Client.TSM.RetrieveRealmItem(itemID, realm, InformationManager.Instance.Region);
+
+            ItemDictionary.Add(item, realm);
+            DictionaryList.Add(ItemDictionary);
+        }
+
+        public void ClearDictionaryList()
+        {
+            DictionaryList.Clear();
+        }
+
     }
 }

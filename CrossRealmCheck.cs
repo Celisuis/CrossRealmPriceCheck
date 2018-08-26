@@ -64,8 +64,6 @@ namespace CrossRealmPriceCheck
                 MessageBox.Show("Please Enter a Realm Name");
             }
 
-
-
             string realmToAdd = Realm_Name_Textbox.Text.Replace(' ', '-').ToLower();
 
             if (InformationManager.Instance.RealmsToCompare.Contains(realmToAdd))
@@ -91,76 +89,105 @@ namespace CrossRealmPriceCheck
 
         private void Check_Realms_Button_Click(object sender, EventArgs e)
         {
-            AuctionManager.Instance.FetchAuctions(int.Parse(ItemID_Textbox.Text), InformationManager.Instance.RealmsToCompare);
-            BuildTable();
-            PopulateTable();
+            InformationManager.Instance.TabsGenerated.Clear();
+            Report_TabControl.Controls.Clear();
+            AuctionManager.Instance.ClearDictionaryList();
+
+            foreach (string id in InformationManager.Instance.ItemIDsToCompare)
+            {
+                int itemID = int.Parse(id);
+                AuctionManager.Instance.FetchAuctions(itemID, InformationManager.Instance.RealmsToCompare);
+                
+            }
+            GenerateTabs(AuctionManager.Instance.DictionaryList);
+
         }
 
-        private void BuildTable()
+        private void GenerateTabs(List<Dictionary<TSMItem, string>> items)
         {
+            foreach (Dictionary<TSMItem, string> dict in items)
+            {
+                KeyValuePair<TSMItem, string> kvp = dict.First();
+                if (!InformationManager.Instance.TabsGenerated.Contains(kvp.Key.Name))
+                    GenerateTab(dict);
+            }
+        }
 
+        private void GenerateTab(Dictionary<TSMItem, string> items)
+        {
+            DataGridView dgv = new DataGridView
+            {
+                Location = new Point(22, 17),
+                Size = new Size(637, 233),
+                AllowUserToAddRows = false,
+                AllowUserToDeleteRows = false,
+            };
+            
             DataGridViewTextBoxColumn realmCol = new DataGridViewTextBoxColumn
             {
                 HeaderText = "Realm Name",
-                Name = "Realm",
-                Width = 100,
+                Name = "RealmName",
+                Width = 200
             };
 
-            Report_DataGrid.Columns.Insert(0, realmCol);
-
-            DataGridViewTextBoxColumn priceColumn = new DataGridViewTextBoxColumn
+            DataGridViewTextBoxColumn marketCol = new DataGridViewTextBoxColumn
             {
                 HeaderText = "Market Average",
-                Name = "DBMarket",
-                Width = 80
+                Name = "MarketAverage",
+                Width = 150
             };
-
-            Report_DataGrid.Columns.Insert(1, priceColumn);
 
             DataGridViewTextBoxColumn minCol = new DataGridViewTextBoxColumn
             {
                 HeaderText = "Minimum Buyout",
-                Name = "MinBuyout",
-                Width = 80
+                Name = "MinimumBuyout",
+                Width = 150
             };
-
-            Report_DataGrid.Columns.Insert(2, minCol);
 
             DataGridViewTextBoxColumn quanCol = new DataGridViewTextBoxColumn
             {
                 HeaderText = "Realm Quantity",
                 Name = "RealmQuantity",
-                Width = 80,
+                Width = 150
             };
+            
+            dgv.Columns.Insert(0, realmCol);
+            dgv.Columns.Insert(1, marketCol);
+            dgv.Columns.Insert(2, minCol);
+            dgv.Columns.Insert(3, quanCol);
 
-            Report_DataGrid.Columns.Insert(3, quanCol);
-        }
-
-        private void PopulateTable()
-        {
-            string itemName = AuctionManager.Instance.ItemList[InformationManager.Instance.RealmsToCompare.First()].Name;
-
-            Item_Report_Label.Text = $"Item Report for - {itemName}";
-            Item_Report_Label.Visible = true;
-
-            foreach (KeyValuePair<string, TSMItem> kvp in AuctionManager.Instance.ItemList)
+            foreach (KeyValuePair<TSMItem, string> kvp in items)
             {
-                Report_DataGrid.Rows.Add($"{kvp.Key}", $"{PriceHelper.ReturnGoldValue(kvp.Value.MarketValue)}", $"{PriceHelper.ReturnGoldValue(kvp.Value.MinimumBuyoutPrice)}", $"{kvp.Value.Quantity}");
-                
+                dgv.Rows.Add($"{kvp.Value}", $"{PriceHelper.ReturnGoldValue(kvp.Key.MarketValue)}", $"{PriceHelper.ReturnGoldValue(kvp.Key.MinimumBuyoutPrice)}", $"{kvp.Key.Quantity}");
+
             }
+
+            KeyValuePair<TSMItem, string> firstItem = items.First();
+
+            TabPage newPage = new TabPage
+            {
+                Text = $"{firstItem.Key.Name}",
+                Size = new Size(682, 273),
+            };
+            newPage.Controls.Add(dgv);
+
+            InformationManager.Instance.TabsGenerated.Add(firstItem.Key.Name);
+
+            Report_TabControl.Controls.Add(newPage);
         }
+
 
         private void Display_Message_Checkbox_CheckedChanged(object sender, EventArgs e)
         {
 
         }
 
-        
+
         private void Item_Report_Label_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             try
             {
-                TryWowHeadLink(AuctionManager.Instance.ItemList.First().Value.ID);
+                TryWowHeadLink(AuctionManager.Instance.ItemDictionary.First().Key.ID);
             }
             catch (Exception ex)
             {
@@ -176,7 +203,7 @@ namespace CrossRealmPriceCheck
 
         private void EU_Checkbox_CheckedChanged(object sender, EventArgs e)
         {
-            if(EU_Checkbox.Checked)
+            if (EU_Checkbox.Checked)
             {
                 InformationManager.Instance.Region = "EU";
                 US_Checkbox.Checked = false;
@@ -197,18 +224,91 @@ namespace CrossRealmPriceCheck
 
             if (InformationManager.Instance.RealmListEnabled)
             {
-                Logger.HideWindow();
+                Logger.HideRealmWindow();
 
                 InformationManager.Instance.RealmListEnabled = false;
             }
 
             if (!InformationManager.Instance.RealmListEnabled)
             {
-                Logger.ShowWindow();
+                Logger.ShowRealmWindow();
 
                 InformationManager.Instance.RealmListEnabled = true;
             }
 
+        }
+
+        private void showItemListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (InformationManager.Instance.ItemListEnabled)
+            {
+                Logger.HideItemWindow();
+
+                InformationManager.Instance.ItemListEnabled = false;
+            }
+
+            if (!InformationManager.Instance.ItemListEnabled)
+            {
+                Logger.ShowItemWindow();
+
+                InformationManager.Instance.ItemListEnabled = true;
+            }
+        }
+
+        private void AddItem_Button_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(ItemID_Textbox.Text))
+            {
+                MessageBox.Show("Please Enter a Item ID");
+                return;
+            }
+
+            if (InformationManager.Instance.ItemIDsToCompare.Contains(ItemID_Textbox.Text))
+            {
+                MessageBox.Show($"Item list already contains {ItemID_Textbox.Text}!");
+            }
+            else
+            {
+                InformationManager.Instance.ItemIDsToCompare.Add(ItemID_Textbox.Text);
+
+                Logger.AddItem(ItemID_Textbox.Text);
+
+                if (Display_Message_Checkbox.Checked)
+                {
+                    MessageBox.Show($"{ItemID_Textbox.Text} has been added to Item List.");
+                }
+
+            }
+
+            ItemID_Textbox.Text = String.Empty;
+        }
+
+        private void RemoveItem_Button_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(ItemID_Textbox.Text))
+            {
+                MessageBox.Show("Please Enter a Item ID");
+            }
+
+            if (InformationManager.Instance.ItemIDsToCompare.Contains(ItemID_Textbox.Text))
+            {
+                InformationManager.Instance.ItemIDsToCompare.Remove(ItemID_Textbox.Text);
+
+                Logger.RemoveItem(ItemID_Textbox.Text);
+
+                if (Display_Message_Checkbox.Checked)
+                {
+                    MessageBox.Show($"{ItemID_Textbox.Text} has been removed from the Item List.");
+                }
+            }
+            else
+            {
+                MessageBox.Show($"Cannot find {ItemID_Textbox.Text} in the Compare List!");
+            }
+
+
+
+            ItemID_Textbox.Text = String.Empty;
         }
     }
 }
