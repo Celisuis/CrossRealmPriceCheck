@@ -18,4 +18,4 @@ Simply check which Region you wish to scan. Only one may be selected at a time.
 
 ### Item ID
 
-Simply enter the Item ID you wish to price check.
+Now that Multiple Items are supported, you use the Item ID box exactly the same as the Realm Box, by adding and removing wanted Item IDs.
