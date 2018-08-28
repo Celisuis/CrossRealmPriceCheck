@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <item>
-  <version>1.0.0.0</version>
-  <url>https://github.com/Celisuis/CrossRealmPriceCheck/releases/download/v1.0/CrossRealmPriceCheck.exe</url>
+  <version>1.2.0.0</version>
+  <url>https://github.com/Celisuis/CrossRealmPriceCheck/releases/download/v1.2/CrossRealmPriceCheck.exe</url>
   <changelog>https://github.com/Celisuis/CrossRealmPriceCheck</changelog>
   <mandatory>false</mandatory>
 </item>

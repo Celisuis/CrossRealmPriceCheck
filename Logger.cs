@@ -20,6 +20,25 @@ namespace CrossRealmPriceCheck
             ItemList.ItemID_RichBox.AppendText($"{itemID}" + Environment.NewLine);
         }
 
+        public static void UpdateItemList(List<string> itemIDs)
+        {
+            ItemList.ItemID_RichBox.Text = String.Empty;
+
+            foreach(string item in itemIDs)
+            {
+                ItemList.ItemID_RichBox.AppendText($"{item}" + Environment.NewLine);
+            }
+        }
+
+        public static void UpdateRealmList(List<string> realms)
+        {
+            RealmList.Realm_List.Text = String.Empty;
+
+            foreach(string realm in realms)
+            {
+                RealmList.Realm_List.AppendText($"{realm}" + Environment.NewLine);
+            }
+        }
         public static void RemoveRealm(string realm)
         {
             List<string> realms = RealmList.Realm_List.Lines.ToList();

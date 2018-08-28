@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TSMCSharp.Helpers;
+using Microsoft.WindowsAPICodePack.Dialogs;
+
 
 using TSMItem = TSMCSharp.Item;
 namespace CrossRealmPriceCheck
@@ -309,6 +311,64 @@ namespace CrossRealmPriceCheck
 
 
             ItemID_Textbox.Text = String.Empty;
+        }
+
+        private void fromFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog
+            {
+                CheckFileExists = true,
+                Filter = "Text Document|*.txt",
+                Title = "Choose your Item ID List",
+                Multiselect = false,
+                InitialDirectory = $"{System.Environment.SpecialFolder.MyDocuments}",
+            };
+
+            if(dialog.ShowDialog() == DialogResult.OK)
+            {
+                LoadManager.Instance.ItemListFilePath = dialog.FileName;
+
+                if (!String.IsNullOrWhiteSpace(LoadManager.Instance.ItemListFilePath))
+                {
+                    Loader.LoadItemList(LoadManager.Instance.ItemListFilePath);
+                    Logger.UpdateItemList(InformationManager.Instance.ItemIDsToCompare);
+
+                    MessageBox.Show($"Item List Loaded Successfully.");
+                }
+            }
+
+         
+        }
+
+        private void tSMGroupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TSMImport import = new TSMImport();
+            import.Show();
+        }
+
+        private void loadRealmListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog
+            {
+                CheckFileExists = true,
+                Filter = "Text Document|*.txt",
+                Title = "Choose your Realm List",
+                Multiselect = false,
+                InitialDirectory = $"{System.Environment.SpecialFolder.MyDocuments}",
+            };
+
+            if(dialog.ShowDialog() == DialogResult.OK)
+            {
+                LoadManager.Instance.RealmListFilePath = dialog.FileName;
+
+                if(!String.IsNullOrWhiteSpace(LoadManager.Instance.RealmListFilePath))
+                {
+                    Loader.LoadRealmList(LoadManager.Instance.RealmListFilePath);
+                    Logger.UpdateRealmList(InformationManager.Instance.RealmsToCompare);
+
+                    MessageBox.Show($"Realm List Loaded Successfully.");
+                }
+            }
         }
     }
 }

@@ -13,7 +13,6 @@ namespace CrossRealmPriceCheck
     static class Program
     {
 
-        private static bool NewUpdate;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -24,6 +23,7 @@ namespace CrossRealmPriceCheck
 
             InformationManager.StartInstance();
             AuctionManager.StartInstance();
+            LoadManager.StartInstance();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

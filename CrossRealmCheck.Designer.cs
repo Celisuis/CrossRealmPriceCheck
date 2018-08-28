@@ -40,11 +40,17 @@
             this.EU_Checkbox = new System.Windows.Forms.CheckBox();
             this.US_Checkbox = new System.Windows.Forms.CheckBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.showRealmListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Report_TabControl = new System.Windows.Forms.TabControl();
             this.AddItem_Button = new System.Windows.Forms.Button();
             this.RemoveItem_Button = new System.Windows.Forms.Button();
+            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showRealmListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showItemListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadItemIDsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fromFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tSMGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadRealmListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -161,20 +167,13 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showRealmListToolStripMenuItem,
-            this.showItemListToolStripMenuItem});
+            this.loadToolStripMenuItem,
+            this.viewToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(714, 24);
             this.menuStrip1.TabIndex = 15;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // showRealmListToolStripMenuItem
-            // 
-            this.showRealmListToolStripMenuItem.Name = "showRealmListToolStripMenuItem";
-            this.showRealmListToolStripMenuItem.Size = new System.Drawing.Size(105, 20);
-            this.showRealmListToolStripMenuItem.Text = "Show Realm List";
-            this.showRealmListToolStripMenuItem.Click += new System.EventHandler(this.showRealmListToolStripMenuItem_Click);
             // 
             // Report_TabControl
             // 
@@ -204,12 +203,67 @@
             this.RemoveItem_Button.UseVisualStyleBackColor = true;
             this.RemoveItem_Button.Click += new System.EventHandler(this.RemoveItem_Button_Click);
             // 
+            // viewToolStripMenuItem
+            // 
+            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showRealmListToolStripMenuItem,
+            this.showItemListToolStripMenuItem});
+            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.viewToolStripMenuItem.Text = "View";
+            // 
+            // showRealmListToolStripMenuItem
+            // 
+            this.showRealmListToolStripMenuItem.Name = "showRealmListToolStripMenuItem";
+            this.showRealmListToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.showRealmListToolStripMenuItem.Text = "Show Realm List";
+            this.showRealmListToolStripMenuItem.Click += new System.EventHandler(this.showRealmListToolStripMenuItem_Click);
+            // 
             // showItemListToolStripMenuItem
             // 
             this.showItemListToolStripMenuItem.Name = "showItemListToolStripMenuItem";
-            this.showItemListToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
+            this.showItemListToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.showItemListToolStripMenuItem.Text = "Show Item List";
             this.showItemListToolStripMenuItem.Click += new System.EventHandler(this.showItemListToolStripMenuItem_Click);
+            // 
+            // loadToolStripMenuItem
+            // 
+            this.loadToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.loadItemIDsToolStripMenuItem,
+            this.loadRealmListToolStripMenuItem});
+            this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
+            this.loadToolStripMenuItem.Text = "Load";
+            // 
+            // loadItemIDsToolStripMenuItem
+            // 
+            this.loadItemIDsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fromFileToolStripMenuItem,
+            this.tSMGroupToolStripMenuItem});
+            this.loadItemIDsToolStripMenuItem.Name = "loadItemIDsToolStripMenuItem";
+            this.loadItemIDsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.loadItemIDsToolStripMenuItem.Text = "Load Item IDs";
+            // 
+            // fromFileToolStripMenuItem
+            // 
+            this.fromFileToolStripMenuItem.Name = "fromFileToolStripMenuItem";
+            this.fromFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fromFileToolStripMenuItem.Text = "From File";
+            this.fromFileToolStripMenuItem.Click += new System.EventHandler(this.fromFileToolStripMenuItem_Click);
+            // 
+            // tSMGroupToolStripMenuItem
+            // 
+            this.tSMGroupToolStripMenuItem.Name = "tSMGroupToolStripMenuItem";
+            this.tSMGroupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tSMGroupToolStripMenuItem.Text = "TSM Group";
+            this.tSMGroupToolStripMenuItem.Click += new System.EventHandler(this.tSMGroupToolStripMenuItem_Click);
+            // 
+            // loadRealmListToolStripMenuItem
+            // 
+            this.loadRealmListToolStripMenuItem.Name = "loadRealmListToolStripMenuItem";
+            this.loadRealmListToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.loadRealmListToolStripMenuItem.Text = "Load Realm List";
+            this.loadRealmListToolStripMenuItem.Click += new System.EventHandler(this.loadRealmListToolStripMenuItem_Click);
             // 
             // CrossRealmCheck
             // 
@@ -255,10 +309,16 @@
         private System.Windows.Forms.CheckBox EU_Checkbox;
         private System.Windows.Forms.CheckBox US_Checkbox;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem showRealmListToolStripMenuItem;
         private System.Windows.Forms.TabControl Report_TabControl;
-        private System.Windows.Forms.ToolStripMenuItem showItemListToolStripMenuItem;
         private System.Windows.Forms.Button AddItem_Button;
         private System.Windows.Forms.Button RemoveItem_Button;
+        private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showRealmListToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showItemListToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadItemIDsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fromFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tSMGroupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadRealmListToolStripMenuItem;
     }
 }
