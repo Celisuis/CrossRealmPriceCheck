@@ -2,6 +2,6 @@
 <item>
   <version>1.2.0.0</version>
   <url>https://github.com/Celisuis/CrossRealmPriceCheck/releases/download/v1.2/CrossRealmPriceCheck.exe</url>
-  <changelog>https://github.com/Celisuis/CrossRealmPriceCheck</changelog>
+  <changelog>https://github.com/Celisuis/CrossRealmPriceCheck/blob/master/Changelog.md</changelog>
   <mandatory>false</mandatory>
 </item>
